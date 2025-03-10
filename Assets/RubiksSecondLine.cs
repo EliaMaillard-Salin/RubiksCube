@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RubiksLine : MonoBehaviour
+public class RubiksSecondLine : MonoBehaviour
 {
     public GameObject m_base;
     RubicksBase m_scriptBase;
@@ -63,7 +63,7 @@ public class RubiksLine : MonoBehaviour
     {
         SetParents();
         gameObject.transform.Rotate(new Vector3(1.0f, 0.0f, 0.0f), 90.0f);
-        m_scriptBase.RotateLine(this,1);
+        //m_scriptBase.RotateLine(this,1);
 
         GameObject tempTopfront = m_topFront;
         GameObject tempTopMiddle = m_topMiddle;
@@ -86,7 +86,7 @@ public class RubiksLine : MonoBehaviour
     {
         SetParents();
         gameObject.transform.Rotate(new Vector3(1.0f, 0.0f, 0.0f), -90.0f);
-        m_scriptBase.RotateLine(this, 0);
+        //m_scriptBase.RotateLine(this, 0);
 
         GameObject tempTopfront = m_topFront;
         GameObject tempTopMiddle = m_topMiddle;
@@ -123,7 +123,7 @@ public class RubiksLine : MonoBehaviour
 
     private void OnMouseDown()
     {
-        m_scriptBase.ChangeLineSelect(this);
+        //m_scriptBase.ChangeLineSelect(this);
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 }

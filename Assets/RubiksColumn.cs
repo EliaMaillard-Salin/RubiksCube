@@ -62,20 +62,20 @@ public class RubiksColumn : MonoBehaviour
     void RotateRight()
     {
         SetParents();
-        gameObject.transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f), 90.0f);
+        gameObject.transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f), -90.0f);
         m_scriptBase.RotateColumn(this, 1);
 
         GameObject tempFrontLeft = m_frontLeft;
         GameObject tempFrontMiddle = m_frontMiddle;
         GameObject tempFrontRight = m_frontRight;
 
-        m_frontRight = m_frontLeft;
+        m_frontRight = tempFrontLeft;
         m_frontMiddle = m_middleLeft;
         m_frontLeft = m_backLeft;
         m_middleLeft = m_backMiddle;
         m_backLeft = m_backRight;
         m_backMiddle = m_middleRight;
-        m_backLeft = tempFrontRight;
+        m_backRight = tempFrontRight;
         m_middleRight = tempFrontMiddle;
 
         UnSetParents();
@@ -85,7 +85,7 @@ public class RubiksColumn : MonoBehaviour
     void RotateLeft()
     {
         SetParents();
-        gameObject.transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f), -90.0f);
+        gameObject.transform.Rotate(new Vector3(0.0f, 1.0f, 0.0f), 90.0f);
         m_scriptBase.RotateColumn(this, 0);
 
         GameObject tempFrontLeft = m_frontLeft;
@@ -124,5 +124,6 @@ public class RubiksColumn : MonoBehaviour
     private void OnMouseDown()
     {
         m_scriptBase.ChangeColumnSelect(this);
-}
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+    }
 }

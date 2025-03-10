@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RubicksBase : MonoBehaviour
@@ -24,21 +25,33 @@ public class RubicksBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+            
     }
 
     public void ChangeColumnSelect(RubiksColumn col)
     {
         m_column1.m_isSelected = false;
+        m_column1.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         m_column2.m_isSelected = false;
+        m_column2.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         m_column3.m_isSelected = false;
+        m_column3.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         col.m_isSelected = true;
     }
     public  void ChangeLineSelect(RubiksLine line)
     {
         m_line1.m_isSelected = false;
+        m_line1.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         m_line2.m_isSelected = false;
+        m_line2.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         m_line3.m_isSelected = false;
+        m_line3.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         line.m_isSelected = true;
     }
 
